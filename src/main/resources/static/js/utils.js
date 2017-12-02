@@ -15,6 +15,15 @@ function matchLinksWithNodes(links, nodes) {
 	});
 }
 
+function convertNodes(nodes) {
+	return nodes.map(function(element) {
+		return {
+			id : element.id,
+			reflexive : element.reflexive
+		};
+	});
+}
+
 function reverseMatchLinksWithNodes(links, nodes) {
 	return links.map(function(element) {
 		return {
