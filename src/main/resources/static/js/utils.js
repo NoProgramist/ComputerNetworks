@@ -56,7 +56,7 @@ function rebuildGraph() {
 	    .size([width, height])
 	    .linkDistance(150)
 	    .charge(-500)
-	    .on('tick', tick);
+	    .on('tick', tick).start();
 	setTimeout(function() {
 		restart();
 	}, 500);
