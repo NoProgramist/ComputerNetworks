@@ -9,21 +9,6 @@ var svg = d3.select('body')
   .attr('width', width)
   .attr('height', height);
 
-// set up initial nodes and links
-//  - nodes are known by 'id', not by index in array.
-//  - reflexive edges are indicated on the node (as a bold black circle).
-//  - links are always source < target; edge directions are set by 'left' and 'right'.
-var nodes = [
-    {id: 0, reflexive: false},
-    {id: 1, reflexive: true },
-    {id: 2, reflexive: false}
-  ],
-  lastNodeId = 2,
-  links = [
-    {source: nodes[0], target: nodes[1], left: false, right: true },
-    {source: nodes[1], target: nodes[2], left: false, right: true }
-  ];
-
 // init D3 force layout
 var force = d3.layout.force()
     .nodes(nodes)

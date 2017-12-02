@@ -23,13 +23,18 @@
 		</div>
 		<canvas id="display"></canvas>
 	</div>
-	<script th:src="@{/js/d3.v3.js}"></script>
+	</script><script th:src="@{/js/utils.js}"></script>
+	<script type="text/javascript" th:inline="javascript">
+		var nodes = [[${nodes}]],
+		lastNodeId = nodes.length - 1,
+		links = matchLinksWithNodes([[${links}]], nodes);
+	</script><script th:src="@{/js/d3.v3.js}"></script>
 	<script th:src="@{/js/app.js}"></script>
-	<script type="text/javascript" th::inline="javascript">
-			$(document).ready(function() {
-				
-				console.log('Document loaded');		
-			});
+	<script type="text/javascript" th:inline="javascript">
+		$(document).ready(function() {
+			
+			console.log('Document loaded');		
+		});
 	</script>
 </body>
 </html>
