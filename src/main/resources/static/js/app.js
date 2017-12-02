@@ -8,6 +8,11 @@ var svg = d3.select('#canvas')
   .attr('width', width)
   .attr('height', height);
 
+	var nodes = []
+	  lastNodeId = -1,
+	  links = [];
+
+
 // init D3 force layout
 var force = d3.layout.force()
     .nodes(nodes)
@@ -290,7 +295,7 @@ function spliceLinksForNode(node) {
 var lastKeyDown = -1;
 
 function keydown() {
-  d3.event.preventDefault();
+  // d3.event.preventDefault();
 
   if(lastKeyDown !== -1) return;
   lastKeyDown = d3.event.keyCode;
