@@ -44,7 +44,7 @@ function generateRamdomGraph(n, m) {
 	}
 	links = [];
 	for(var i = 0; i < m; i++) {
-		links.push({source: list[i][0], target: list[i][1], left: true, right: true, weight: 100 });
+		links.push({source: list[i][0], target: list[i][1], left: true, right: true, weight: '' });
 	}
 	rebuildGraph();
 }
