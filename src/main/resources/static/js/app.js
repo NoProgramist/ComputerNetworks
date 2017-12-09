@@ -8,11 +8,6 @@ var svg = d3.select('#canvas')
   .attr('width', width)
   .attr('height', height);
 
-	var nodes = []
-	  lastNodeId = -1,
-	  links = [];
-
-
 // init D3 force layout
 var force = d3.layout.force()
     .nodes(nodes)
@@ -21,7 +16,6 @@ var force = d3.layout.force()
     .linkDistance(150)
     .charge(-500)
     .on('tick', tick)
-
 
 // define arrow markers for graph links
 svg.append('svg:defs').append('svg:marker')
@@ -89,9 +83,6 @@ function tick() {
   circle.attr('transform', function(d) {
     return 'translate(' + d.x + ',' + d.y + ')';
   });
-	svg.selectAll('text.aEnd')
-    .attr('x', function(d) { return xpos(d.source, d.target); })
-    .attr('y', function(d) { return ypos(d.source, d.target); });
 }
 
 // update graph (called when needed)
@@ -101,23 +92,16 @@ function restart() {
 
   // update existing links
   path.classed('selected', function(d) { return d === selected_link; })
-    .style('marker-start', function(d) {
-			return d.left ? 'url(#start-arrow)' : '';
-		})
-    .style('marker-end', function(d) {
-			return d.right ? 'url(#end-arrow)' : '';
-		})
+    .style('marker-start', function(d) { return d.left ? 'url(#start-arrow)' : ''; })
+    .style('marker-end', function(d) { return d.right ? 'url(#end-arrow)' : ''; });
+
 
   // add new links
   path.enter().append('svg:path')
     .attr('class', 'link')
-    .classed('selected', function(d) {
-			return d === selected_link; })
-    .style('marker-start', function(d) {
-			return d.left ? 'url(#start-arrow)' : ''; })
-    .style('marker-end', function(d) {
-			return d.right ? 'url(#end-arrow)' : ''; })
-
+    .classed('selected', function(d) { return d === selected_link; })
+    .style('marker-start', function(d) { return d.left ? 'url(#start-arrow)' : ''; })
+    .style('marker-end', function(d) { return d.right ? 'url(#end-arrow)' : ''; })
     .on('mousedown', function(d) {
       if(d3.event.ctrlKey) return;
 
@@ -131,6 +115,7 @@ function restart() {
 
   // remove old links
   path.exit().remove();
+
 
   // circle (node) group
   // NB: the function arg is crucial here! nodes are known by id, not by index!
@@ -230,13 +215,12 @@ function restart() {
       .attr('y', 4)
       .attr('class', 'id')
       .text(function(d) { return d.id; });
+
   // remove old nodes
   circle.exit().remove();
+
   // set the graph in motion
   force.start();
-	var link = svg.selectAll("link")
-	      .data(links).enter();
-	 addLink(link);
 }
 
 function mousedown() {
@@ -295,7 +279,6 @@ function spliceLinksForNode(node) {
 var lastKeyDown = -1;
 
 function keydown() {
-  // d3.event.preventDefault();
 
   if(lastKeyDown !== -1) return;
   lastKeyDown = d3.event.keyCode;
@@ -370,32 +353,3 @@ d3.select(window)
   .on('keydown', keydown)
   .on('keyup', keyup);
 restart();
-
-var table = document.getElementById('edgesTable');
-
-function addEdge(edge) {
-	var tr = document.createElement('tr');
-	var td = document.createElement('td');
-	td.appendChild(document.createTextNode(edge.a));
-	tr.appendChild(td);
-	table.appendChild(tr);
-}
-
-function addLink(l) {
-  l.append('svg:text')
-  .attr('class', 'aEnd')
-  .attr('x', function(d) { return d.source.x; })
-  .attr('y', function(d) { return d.source.y; })
-  .attr('text-anchor', 'middle')
-  .text(function(d) { return d.weight; });
-};
-
-function xpos(s, t) {
-  var angle = Math.atan2(t.y - s.y, t.x - s.x);
-  return 30 * Math.cos(angle) + s.x + 20;
-};
-
-function ypos(s, t) {
-  var angle = Math.atan2(t.y - s.y, t.x - s.x);
-  return 30 * Math.sin(angle) + s.y + 20;
-};
