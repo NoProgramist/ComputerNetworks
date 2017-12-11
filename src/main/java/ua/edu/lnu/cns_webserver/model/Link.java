@@ -10,16 +10,19 @@ public class Link {
 
 	private boolean right;
 
+	private double weight;
+
 	public Link() {
 		super();
 	}
 
-	public Link(int source, int target, boolean left, boolean right) {
+	public Link(int source, int target, boolean left, boolean right, double weight) {
 		super();
 		this.source = source;
 		this.target = target;
 		this.left = left;
 		this.right = right;
+		this.weight = weight;
 	}
 
 	public int getSource() {
@@ -52,6 +55,14 @@ public class Link {
 
 	public void setRight(boolean right) {
 		this.right = right;
+	}
+
+	public double getWeight() {
+		return weight;
+	}
+
+	public void setWeight(double weight) {
+		this.weight = weight;
 	}
 
 }
