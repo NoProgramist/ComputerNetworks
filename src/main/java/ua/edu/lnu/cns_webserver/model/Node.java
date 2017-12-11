@@ -2,7 +2,7 @@ package ua.edu.lnu.cns_webserver.model;
 
 public class Node {
 
-	private Long id;
+	private int id;
 
 	private boolean reflexive;
 
@@ -10,17 +10,17 @@ public class Node {
 		super();
 	}
 
-	public Node(Long id, boolean reflexive) {
+	public Node(int id, boolean reflexive) {
 		super();
 		this.id = id;
 		this.reflexive = reflexive;
 	}
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

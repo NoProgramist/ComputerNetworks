@@ -27,9 +27,9 @@ public class IndexController {
 
 	@GetMapping("/")
 	public String index(Model model) {
-		Node n1 = new Node(0L, false);
-		Node n2 = new Node(1L, false);
-		Node n3 = new Node(2L, false);
+		Node n1 = new Node(0, false);
+		Node n2 = new Node(1, false);
+		Node n3 = new Node(2, false);
 		Link l1 = new Link(n1.getId(), n2.getId(), true, true);
 		Link l2 = new Link(n2.getId(), n3.getId(), false, true);
 		model.addAttribute("graph", new Graph(Arrays.asList(n1, n2, n3), Arrays.asList(l1, l2)));

@@ -2,9 +2,9 @@ package ua.edu.lnu.cns_webserver.model;
 
 public class Link {
 
-	private Long source;
+	private int source;
 
-	private Long target;
+	private int target;
 
 	private boolean left;
 
@@ -14,7 +14,7 @@ public class Link {
 		super();
 	}
 
-	public Link(Long source, Long target, boolean left, boolean right) {
+	public Link(int source, int target, boolean left, boolean right) {
 		super();
 		this.source = source;
 		this.target = target;
@@ -22,19 +22,19 @@ public class Link {
 		this.right = right;
 	}
 
-	public Long getSource() {
+	public int getSource() {
 		return source;
 	}
 
-	public void setSource(Long source) {
+	public void setSource(int source) {
 		this.source = source;
 	}
 
-	public Long getTarget() {
+	public int getTarget() {
 		return target;
 	}
 
-	public void setTarget(Long target) {
+	public void setTarget(int target) {
 		this.target = target;
 	}
 
