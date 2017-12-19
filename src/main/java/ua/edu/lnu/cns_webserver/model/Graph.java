@@ -3,36 +3,31 @@ package ua.edu.lnu.cns_webserver.model;
 import java.util.Arrays;
 import java.util.List;
 
-public class Graph {
+import ua.edu.lnu.computer_networks.algorithms.model.SimpleGraph;
 
-	private List<Node> nodes;
-
-	private List<Link> links;
+public class Graph extends SimpleGraph {
 
 	public Graph() {
 		this(Arrays.asList(), Arrays.asList());
 	}
 
 	public Graph(List<Node> nodes, List<Link> links) {
-		super();
-		this.nodes = nodes;
-		this.links = links;
+		super(nodes, links);
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Node> getNodes() {
-		return nodes;
+		return (List<Node>) vertexes;
 	}
 
-	public void setNodes(List<Node> nodes) {
-		this.nodes = nodes;
-	}
-
+	@SuppressWarnings("unchecked")
 	public List<Link> getLinks() {
-		return links;
+		return (List<Link>) edges;
 	}
 
-	public void setLinks(List<Link> links) {
-		this.links = links;
+	@Override
+	public String toString() {
+		return "Graph [nodes=" + vertexes + ", links=" + edges + "]";
 	}
 
 }

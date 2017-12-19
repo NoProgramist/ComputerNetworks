@@ -1,7 +1,7 @@
-package ua.edu.lnu.cns_webserver.model.algorithms;
+package ua.edu.lnu.cns_webserver.model.algorithms.traversal;
 
 public enum TraversalAlgorithmType {
-	BFS("Breadth-first search "), DFS("Depth-first search");
+	BFS("Breadth-first search"), DFS("Depth-first search");
 
 	private String name;
 

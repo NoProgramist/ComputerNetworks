@@ -1,35 +1,60 @@
 package ua.edu.lnu.cns_webserver.model;
 
-public class Node {
+import ua.edu.lnu.computer_networks.algorithms.model.Vertex;
 
-	private int id;
+public class Node extends Vertex {
 
-	private boolean reflexive;
+	private double x;
+
+	private double y;
+
+	private double px;
+
+	private double py;
 
 	public Node() {
-		super();
+		super(0, false);
 	}
 
 	public Node(int id, boolean reflexive) {
-		super();
-		this.id = id;
-		this.reflexive = reflexive;
+		super(id, reflexive);
 	}
 
-	public int getId() {
-		return id;
+	public double getX() {
+		return x;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setX(double x) {
+		this.x = x;
 	}
 
-	public boolean isReflexive() {
-		return reflexive;
+	public double getY() {
+		return y;
 	}
 
-	public void setReflexive(boolean reflexive) {
-		this.reflexive = reflexive;
+	public void setY(double y) {
+		this.y = y;
+	}
+
+	public double getPx() {
+		return px;
+	}
+
+	public void setPx(double px) {
+		this.px = px;
+	}
+
+	public double getPy() {
+		return py;
+	}
+
+	public void setPy(double py) {
+		this.py = py;
+	}
+
+	@Override
+	public String toString() {
+		return "Node [id=" + id + ", reflexive=" + reflexive + "]";
 	}
 
 }

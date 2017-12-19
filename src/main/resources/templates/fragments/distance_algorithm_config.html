@@ -1,0 +1,16 @@
+<div>
+	<div class="input-group">
+		<span class="input-group-addon" id="basic-addon1">Traversal algorithm</span> <select id="distance-algorithm" class="form-control">
+			<option th:each="type : ${T(ua.edu.lnu.cns_webserver.model.algorithms.distance.DistanceAlgorithmType).values()}" th:value="${type}" th:text="${type.getName()}"></option>
+		</select>
+	</div>
+	<div class="input-group">
+		<span class="input-group-addon" id="basic-addon2">Root vertex</span> 
+		<input id="traversal-root" type="text" value="0">
+	</div>
+	<div class="row input-group">
+		<div class="col-sm-6">
+			<button class="btn btn-success" onclick="submitDistance()">Submit</button>
+		</div>
+	</div>
+</div>

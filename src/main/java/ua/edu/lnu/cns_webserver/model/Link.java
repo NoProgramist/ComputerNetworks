@@ -1,68 +1,20 @@
 package ua.edu.lnu.cns_webserver.model;
 
-public class Link {
+import ua.edu.lnu.computer_networks.algorithms.model.Edge;
 
-	private int source;
-
-	private int target;
-
-	private boolean left;
-
-	private boolean right;
-
-	private double weight;
+public class Link extends Edge {
 
 	public Link() {
-		super();
+		super(0, 0, false, false, 1);
 	}
 
 	public Link(int source, int target, boolean left, boolean right, double weight) {
-		super();
-		this.source = source;
-		this.target = target;
-		this.left = left;
-		this.right = right;
-		this.weight = weight;
+		super(source, target, left, right, weight);
 	}
 
-	public int getSource() {
-		return source;
-	}
-
-	public void setSource(int source) {
-		this.source = source;
-	}
-
-	public int getTarget() {
-		return target;
-	}
-
-	public void setTarget(int target) {
-		this.target = target;
-	}
-
-	public boolean isLeft() {
-		return left;
-	}
-
-	public void setLeft(boolean left) {
-		this.left = left;
-	}
-
-	public boolean isRight() {
-		return right;
-	}
-
-	public void setRight(boolean right) {
-		this.right = right;
-	}
-
-	public double getWeight() {
-		return weight;
-	}
-
-	public void setWeight(double weight) {
-		this.weight = weight;
+	@Override
+	public String toString() {
+		return "Link [source=" + source + ", target=" + target + ", left=" + left + ", right=" + right + ", weight=" + weight + "]";
 	}
 
 }

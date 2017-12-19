@@ -1,20 +1,16 @@
-<form th:action="@{/algorithm/traversal}" th:object="${traversalAlgorithmParameters}" method="post">
+<div>
 	<div class="input-group">
-		<span class="input-group-addon" id="basic-addon1">Traversal algorithm</span> <select class="form-control" th:field="*{type}">
-			<option th:each="type : ${T(ua.edu.lnu.cns_webserver.model.algorithms.TraversalAlgorithmType).values()}" th:value="${type}" th:text="${type.getName()}"></option>
+		<span class="input-group-addon" id="basic-addon1">Traversal algorithm</span> <select id="traversal-algorithm" class="form-control">
+			<option th:each="type : ${T(ua.edu.lnu.cns_webserver.model.algorithms.traversal.TraversalAlgorithmType).values()}" th:value="${type}" th:text="${type.getName()}"></option>
 		</select>
 	</div>
 	<div class="input-group">
-		<span class="input-group-addon" id="basic-addon2">Root vertex</span> <select class="form-control" th:field="*{root}">
-			<option th:each="node : ${graph.nodes}" th:value="${node}" th:text="${node.getId()}"></option>
-		</select>
+		<span class="input-group-addon" id="basic-addon2">Root vertex</span> 
+		<input id="traversal-root" type="text" value="0">
 	</div>
 	<div class="row input-group">
 		<div class="col-sm-6">
-			<input type="submit" class="btn btn-success" value="Submit" />
-		</div>
-		<div class="col-sm-6">
-			<input type="reset" class="btn btn-warning" value="Reset" />
+			<button class="btn btn-success" onclick="submitTraversal()">Submit</button>
 		</div>
 	</div>
-</form>
+</div>
